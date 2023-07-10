@@ -25,11 +25,11 @@ export async function GET(req: NextRequest) {
 
             const res = await fetch('https://slack.com/api/oauth.v2.access',{
                 method:"POST",
-                body: JSON.stringify({
-                    //@ts-ignore
+                // @ts-ignore
+                body: new URLSearchParams({
                     code: code,
                     client_id: process.env.NEXT_PUBLIC_CLIENT_ID,
-                    client_secret: process.env.NEXT_PUBLIC_CLIENT_SECRET                    
+                    client_secret: process.env.NEXT_PUBLIC_CLIENT_SECRET,
                 }),
             })
             
