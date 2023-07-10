@@ -42,7 +42,7 @@ export async function GET(req: NextRequest) {
         //         code:code,
         //         ...resData
         //     }))
-        // }
+        }
 
         return Response.redirect("https://test-project-2-wheat.vercel.app/")
         
