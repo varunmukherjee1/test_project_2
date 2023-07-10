@@ -38,11 +38,11 @@ export async function GET(req: NextRequest) {
             console.log("res");
             console.log(resData);
             
-            const ops = await fs.writeFile(jsonDir + "/notionToken.json",JSON.stringify({
-                code:code,
-                ...resData
-            }))
-        }
+        //     const ops = await fs.writeFile(jsonDir + "/notionToken.json",JSON.stringify({
+        //         code:code,
+        //         ...resData
+        //     }))
+        // }
 
         return Response.redirect("https://test-project-2-wheat.vercel.app/")
         
