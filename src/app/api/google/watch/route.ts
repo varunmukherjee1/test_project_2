@@ -4,14 +4,43 @@ import { NextRequest } from "next/server";
 // import User from "@/models/user";
 // import { connectToDB } from "@/utils/database";
 
+// async function read() {
+//     const {done,value} = await reader.read();
+
+
+//     if (done) {
+//         return JSON.parse(chunks.join(''));
+//       }
+  
+//       const chunk = decoder.decode(value, { stream: true });
+//       chunks.push(chunk);
+//       console.log(chunk);
+
+//       return read(); // read
+// }
+
 export async function POST(req: Request) {
     console.log("post watch web hook api hit");
     try {
-
-        const body = await req.json();
         console.log('rec data :-');
-        console.log(body);
+        const data = req.body;
 
+        //@ts-ignore
+        const reader = data.getReader();
+        const decoder = new TextDecoder;
+        const chunks:any[] = []
+
+        while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            chunks.push(value);
+        }
+        
+          // Concatenate the chunks and parse as JSON
+        const jsonData = JSON.parse(Buffer.concat(chunks).toString());
+        console.log(jsonData);
+
+       
         return new Response(JSON.stringify({
             status: true,
             // res: res.data
