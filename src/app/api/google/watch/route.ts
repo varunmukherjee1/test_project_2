@@ -32,11 +32,13 @@ export async function POST(req: Request) {
 
         while (true) {
             const { done, value } = await reader.read();
-            if (done) break;
+            if (done){
+                break;
+            }
 
             const chunk = decoder.decode(value)
-            chunks.push(chunk);
-            console.log(chunk);
+            chunks.push(chunk.toString());
+            console.log(chunk.toString());
             // chunks.push(value);
         }
         
