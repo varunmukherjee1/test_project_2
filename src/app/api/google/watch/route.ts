@@ -33,12 +33,18 @@ export async function POST(req: Request) {
         while (true) {
             const { done, value } = await reader.read();
             if (done) break;
-            chunks.push(value);
+
+            const chunk = decoder.decode(value)
+            chunks.push(chunk);
+            console.log(chunk);
+            // chunks.push(value);
         }
         
-          // Concatenate the chunks and parse as JSON
-        const jsonData = JSON.parse(Buffer.concat(chunks).toString());
-        console.log(jsonData);
+        // Concatenate the chunks and parse as JSON
+        console.log('chunks arr :-');
+        console.log(chunks.join(''));
+        // const jsonData = JSON.parse(Buffer.concat(chunks).toString());
+        // console.log(jsonData);
 
        
         return new Response(JSON.stringify({
