@@ -1,19 +1,16 @@
+import { NextApiRequest } from "next";
 import { NextRequest } from "next/server";
 // import {google} from "googleapis"
 // import User from "@/models/user";
 // import { connectToDB } from "@/utils/database";
 
-export async function POST(req:any) {
+export async function POST(req: NextApiRequest) {
     console.log("post watch web hook api hit");
     try {
 
         // const body = await req.json();
         console.log('rec data :-');
         console.log(req.body);
-
-        console.log('json:-');
-        const data = await req.body.json();
-        console.log(data);
 
         return new Response(JSON.stringify({
             status: true,
