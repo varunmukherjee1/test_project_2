@@ -12,7 +12,8 @@ export async function POST(req:any) {
         console.log(req.body);
 
         console.log('json:-');
-        console.log(JSON.parse(req.body));
+        const data = await req.body.json();
+        console.log(data);
 
         return new Response(JSON.stringify({
             status: true,
