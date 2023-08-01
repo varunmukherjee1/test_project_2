@@ -43,6 +43,10 @@ export async function POST(req: Request) {
         // Concatenate the chunks and parse as JSON
         console.log('chunks arr :-');
         console.log(chunks.join(''));
+
+        console.log('json data');
+        const jsonData = JSON.parse(chunks.join(''));
+        console.log(jsonData);
         // const jsonData = JSON.parse(Buffer.concat(chunks).toString());
         // console.log(jsonData);
 
