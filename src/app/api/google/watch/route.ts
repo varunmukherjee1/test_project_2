@@ -4,13 +4,13 @@ import { NextRequest } from "next/server";
 // import User from "@/models/user";
 // import { connectToDB } from "@/utils/database";
 
-export async function POST(req: NextApiRequest) {
+export async function POST(req: Request) {
     console.log("post watch web hook api hit");
     try {
 
-        // const body = await req.json();
+        const body = await req.json();
         console.log('rec data :-');
-        console.log(req.body);
+        console.log(body);
 
         return new Response(JSON.stringify({
             status: true,
