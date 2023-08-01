@@ -25,30 +25,36 @@ export async function POST(req: Request) {
         console.log('rec data :-');
         const data = req.body;
 
+        console.log('type:');
+        console.log(typeof(req.body));
+
+        console.log('body');
+        console.log(req.body);
+
         //@ts-ignore
-        const reader = data.getReader();
-        const decoder = new TextDecoder;
-        const chunks:any[] = []
+        // const reader = data.getReader();
+        // const decoder = new TextDecoder;
+        // const chunks:any[] = []
 
-        while (true) {
-            const { done, value } = await reader.read();
-            if (done){
-                break;
-            }
+        // while (true) {
+        //     const { done, value } = await reader.read();
+        //     if (done){
+        //         break;
+        //     }
 
-            const chunk = decoder.decode(value)
-            chunks.push(chunk.toString());
-            console.log(chunk.toString());
-            // chunks.push(value);
-        }
+        //     const chunk = decoder.decode(value)
+        //     chunks.push(chunk.toString());
+        //     console.log(chunk.toString());
+        //     // chunks.push(value);
+        // }
         
-        // Concatenate the chunks and parse as JSON
-        console.log('chunks arr :-');
-        console.log(chunks.join(''));
+        // // Concatenate the chunks and parse as JSON
+        // console.log('chunks arr :-');
+        // console.log(chunks.join(''));
 
-        console.log('json data');
-        const jsonData = JSON.parse(chunks.join(''));
-        console.log(jsonData);
+        // console.log('json data');
+        // const jsonData = JSON.parse(chunks.join(''));
+        // console.log(jsonData);
         // const jsonData = JSON.parse(Buffer.concat(chunks).toString());
         // console.log(jsonData);
 
