@@ -7,9 +7,10 @@ export async function POST(req: NextRequest) {
     console.log("post watch web hook api hit");
     try {
 
-        const body = await req.json();
+
+        // const body = await req.json();
         console.log('rec data :-');
-        console.log(body);
+        console.log(req);
 
         return new Response(JSON.stringify({
             status: true,
