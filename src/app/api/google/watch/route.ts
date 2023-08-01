@@ -22,14 +22,15 @@ import { NextRequest } from "next/server";
 export async function POST(req: Request) {
     console.log("post watch web hook api hit");
     try {
-        console.log('rec data :-');
+        // console.log('rec data :-');
         const data = req.body;
+        
+        console.log('body');
+        console.log(req.body);
 
         console.log('type:');
         console.log(typeof(req.body));
 
-        console.log('body');
-        console.log(req.body);
 
         //@ts-ignore
         // const reader = data.getReader();
